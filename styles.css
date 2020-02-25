@@ -66,8 +66,14 @@
             }
 
             section.feature.close {
+                color: #efefef;
+                padding: 3%;
+                font-size: 100%;
+            }
+
+            section.feature.title {
                 color: #dedede;
-                padding: 10%;
+                padding: 3%;
                 font-size: 100%;
             }
 
@@ -89,11 +95,23 @@
 
 
             img.contact {
+                margin-top: 3%;
                 width: 10%;
                 border-radius: 9%;
             }
 
             img.contact:hover{
+                filter: brightness(0.7);
+            } 
+
+            img.games {
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-top: 10px;
+                width: 300px;
+            }
+
+            img.games:hover{
                 filter: brightness(0.7);
             } 
 
