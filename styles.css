@@ -55,7 +55,9 @@
             header li.navigator {
                 font-size: 100%;
             }
-
+            section a {
+				color:#FFBF00;
+            }
 
             section.par {
                 margin-top: 150%;
