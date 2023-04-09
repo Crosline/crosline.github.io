@@ -10,7 +10,7 @@
                 text-align: center;
                 background: #191919;
                 color: #dedede;
-                font-family: 'Roboto Thin', 'Roboto', Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-family: 'Roboto Thin', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
                 margin: 0;
                 padding: 0;
             }
@@ -46,6 +46,11 @@
                 top: -10px;
                 width: 100px;
                 text-indent: -9999999px;
+                filter: invert(35%) sepia(94%) saturate(1005%) hue-rotate(1deg) brightness(105%) contrast(103%);
+            }
+
+            header .logo a:hover {
+                filter: invert(1%) sepia(0%) saturate(5852%) hue-rotate(171deg) brightness(111%) contrast(74%);
             }
 
             header li {
@@ -110,6 +115,7 @@
             } 
 
             img.games {
+                border-radius: 10px;
                 margin-left: 10px;
                 margin-right: 10px;
                 margin-top: 10px;
