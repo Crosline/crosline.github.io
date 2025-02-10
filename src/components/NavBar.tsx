@@ -13,8 +13,7 @@ const NavBar = () => {
     { id: 'skills', label: 'Skills' }
   ];
   const urlSections = [
-    { url: 'https://github.com/crosline/', label: 'GitHub' },
-    { url: 'https://crosline.itch.io/', label: 'Games' },
+    { url: '/Algorithm-Visualizer/pathfinding', label: 'AlgoViz' },
     { url: '/documents/i_cagkan_caglayanel-resume.pdf', label: 'Resume' },
   ];
 
