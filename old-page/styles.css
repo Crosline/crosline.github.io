@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                text-align: center;
+                background: #191919;
+                color: #dedede;
+                font-family: 'Roboto Thin', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+                margin: 0;
+                padding: 0;
+            }
+            
+            ul {
+                margin: 0px;
+                list-style-type: none;
+            }
+            header {
+                margin: 0 0 0 0;
+                background-color: #111111;
+                text-align: center;
+                background-position: center;
+                color: #dedede;
+            }
+
+            header a {
+                text-decoration: none;
+                color: #dedede;
+                text-transform: uppercase;
+                margin-top: 25%;
+            }
+            header a:hover {
+                color: #FFBF00;
+            }
+
+            header .logo a {
+                background-image: url("resources/logo.png");
+                background-size: 90%;
+                background-repeat: no-repeat;
+                display: inline-block;
+                position: relative;
+                top: -10px;
+                width: 100px;
+                text-indent: -9999999px;
+                filter: invert(35%) sepia(94%) saturate(1005%) hue-rotate(1deg) brightness(105%) contrast(103%);
+            }
+
+            header .logo a:hover {
+                filter: invert(1%) sepia(0%) saturate(5852%) hue-rotate(171deg) brightness(111%) contrast(74%);
+            }
+
+            header li {
+                padding: 2%;
+                display: inline-block;
+            }
+            header li.navigator {
+                font-size: 100%;
+            }
+            section a {
+				color:#FFBF00;
+            }
+            a {
+				color:#FFBF00;
+            }
+
+            section.par {
+                margin-top: 150%;
+                padding-top: 10%;
+                margin-bottom: 50%;
+                padding-left: 1%;
+                padding-right: 1%;
+            }
+
+            section.feature.close {
+                color: #efefef;
+                padding: 3%;
+                font-size: 100%;
+            }
+
+            section.feature.title {
+                color: #dedede;
+                padding: 3%;
+                font-size: 100%;
+            }
+
+            .feature div {
+                text-align: center;
+                font-size: 125%;
+                color: #dedede;
+                margin: 1px;
+                width: 100%;
+            }
+
+            footer {
+                text-align: center;
+                background-attachment: scroll;
+                background-position: 0% 0%;
+                position: fixed;
+                bottom: 0;
+            }
+
+
+            img.contact {
+                margin-top: 3%;
+                width: 10%;
+                border-radius: 9%;
+            }
+
+            img.contact:hover{
+                filter: brightness(0.7);
+            } 
+
+            img.games {
+                border-radius: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-top: 10px;
+                width: 300px;
+            }
+
+            img.games:hover{
+                filter: brightness(0.7);
+            } 
+
+            section .mybutton {
+                text-decoration: none;
+                font-family: 'Roboto';
+                font-size: 24px;
+                color: #151D21;
+                background: #FFBF00;
+                display: inline-flex;
+                padding: 6px;
+                margin-top: 30px;
+                margin-right: 3%;
+                margin-left: 3%;
+                border: none;
+                border-radius: 5px;
+            }
+        
+            section .mybutton:hover {
+                background: white;
+                font-size: 26px;
+                margin-top: 29px;
+            }
+            
