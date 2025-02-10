@@ -7,6 +7,29 @@ export const ExperienceSection = () => {
       company: "Panteon Games",
       role: "Mid-Core Software Engineer",
       period: "Nov 2023 - Present",
+      location: "Ankara, Turkey",
+      responsibilities: [
+        "Created CI/CD and SCM Pipeline helper solution",
+        "Developed Automated Integrations",
+        "Optimized Unity Build Pipeline"
+      ]
+    },
+    {
+      company: "Panteon Games",
+      role: "Mid-Core Software Engineer",
+      period: "Nov 2023 - Present",
+      location: "Ankara, Turkey",
+      responsibilities: [
+        "Created CI/CD and SCM Pipeline helper solution",
+        "Developed Automated Integrations",
+        "Optimized Unity Build Pipeline"
+      ]
+    },
+    {
+      company: "Panteon Games",
+      role: "Mid-Core Software Engineer",
+      period: "Nov 2023 - Present",
+      location: "Ankara, Turkey",
       responsibilities: [
         "Created CI/CD and SCM Pipeline helper solution",
         "Developed Automated Integrations",
@@ -18,7 +41,6 @@ export const ExperienceSection = () => {
 
   return (
     <Box component="section" sx={{ py: 8 }}>
-      <Typography variant="h3" sx={{ mb: 4 }}>Experience</Typography>
       {experiences.map((job, index) => (
         <JobCard key={index} {...job} />
       ))}

@@ -1,19 +1,37 @@
-﻿import { Box, Container, Typography, useTheme } from '@mui/material';
+﻿import React from 'react';
+import { Box } from '@mui/material';
+import NavBar from '../components/NavBar';
+import TimelineSection from '../components/TimelineSection';
 import { Hero } from '../components/Hero';
-import { ProjectSection } from '../components/ProjectSection';
 import { ExperienceSection } from '../components/ExperienceSection';
+import { ProjectSection } from '../components/ProjectSection';
 import { SkillsSection } from '../components/SkillsSection';
 
 const Home = () => {
   return (
     <Box sx={{
-      background: 'linear-gradient(45deg, #1a234e 30%, #711b92 90%)', color: 'text.primary', minHeight: '100vh' }}>
-      <Hero />
-      <Container maxWidth="lg">
+      minHeight: '100vh',
+      background: 'linear-gradient(45deg, #1a234e 30%, #711b92 90%)',
+      color: 'text.primary',
+      position: 'relative'
+    }}>
+      <NavBar />
+
+      <Box id="hero" sx={{ position: 'relative' }}>
+        <Hero />
+      </Box>
+
+      <TimelineSection id="experience" title="Experience">
         <ExperienceSection />
+      </TimelineSection>
+
+      <TimelineSection id="projects" title="Projects">
         <ProjectSection />
+      </TimelineSection>
+
+      <TimelineSection id="skills" title="Skills">
         <SkillsSection />
-      </Container>
+      </TimelineSection>
     </Box>
   );
 };
