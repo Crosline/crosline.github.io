@@ -1,4 +1,4 @@
-﻿import { Box, Grid, useMediaQuery } from '@mui/material';
+import { Box, Grid, useMediaQuery } from '@mui/material';
 import ExperienceCard from "./ExperienceCard";
 import { GitHub, Language, YouTube } from "@mui/icons-material";
 import { theme } from "../styles/theme";

@@ -1,4 +1,4 @@
-﻿import { Box } from '@mui/material';
+import { Box } from '@mui/material';
 import ExperienceCard from "./ExperienceCard";
 import { Language, LinkedIn } from "@mui/icons-material";
 

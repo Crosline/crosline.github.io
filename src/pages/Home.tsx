@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Box } from '@mui/material';
 import NavBar from '../components/NavBar';
 import TimelineSection from '../components/TimelineSection';

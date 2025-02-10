@@ -1,4 +1,4 @@
-﻿import { Box, Typography, IconButton, Container } from '@mui/material';
+import { Box, Typography, IconButton, Container } from '@mui/material';
 import { Gamepad, GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import TextTransition, { presets } from 'react-text-transition';

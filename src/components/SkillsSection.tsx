@@ -1,4 +1,4 @@
-﻿import { Box, Chip } from '@mui/material';
+import { Box, Chip } from '@mui/material';
 export const SkillsSection = () => {
   const skills = [
     "JavaScript", "TypeScript", "React", "Node.js", "Python",
