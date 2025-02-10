@@ -1,5 +1,4 @@
-﻿import { Box, Typography, Chip } from '@mui/material';
-
+﻿import { Box, Chip } from '@mui/material';
 export const SkillsSection = () => {
   const skills = [
     "JavaScript", "TypeScript", "React", "Node.js", "Python",
@@ -8,7 +7,6 @@ export const SkillsSection = () => {
 
   return (
     <Box component="section" sx={{ py: 8 }}>
-      <Typography variant="h3" sx={{ mb: 4 }}>Skills</Typography>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
         {skills.map((skill, index) => (
           <Chip

@@ -12,6 +12,11 @@ const NavBar = () => {
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' }
   ];
+  const urlSections = [
+    { url: 'https://github.com/crosline/', label: 'GitHub' },
+    { url: 'https://crosline.itch.io/', label: 'Games' },
+    { url: '/documents/i_cagkan_caglayanel-resume.pdf', label: 'Resume' },
+  ];
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
@@ -53,6 +58,22 @@ const NavBar = () => {
                 <Button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
+                  sx={{
+                    color: 'text.primary',
+                    '&:hover': {
+                      color: 'primary.main',
+                      bgcolor: 'rgba(255, 255, 255, 0.08)'
+                    }
+                  }}
+                >
+                  {section.label}
+                </Button>
+              ))}
+
+              {urlSections.map((section) => (
+                <Button
+                  key={section.url}
+                  onClick={() => window.open(section.url, '_blank')}
                   sx={{
                     color: 'text.primary',
                     '&:hover': {

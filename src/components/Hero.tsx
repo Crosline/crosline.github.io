@@ -1,5 +1,5 @@
 ﻿import { Box, Typography, IconButton, Container } from '@mui/material';
-import { GitHub, LinkedIn, Mail } from '@mui/icons-material';
+import { Gamepad, GitHub, Instagram, LinkedIn, Mail } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import TextTransition, { presets } from 'react-text-transition';
 import React from "react";
@@ -48,6 +48,8 @@ export const Hero = () => {
             {icon: <GitHub/>, href: 'https://github.com/crosline'},
             {icon: <LinkedIn/>, href: 'https://linkedin.com/in/crosline'},
             {icon: <Mail/>, href: 'mailto:cagkancaglayanel@gmail.com'},
+            {icon: <Instagram/>, href: 'https://instagram.com/croslines'},
+            {icon: <Gamepad/>, href: 'https://crosline.itch.io/'},
           ].map((item, index) => (
             <IconButton
               key={index}
