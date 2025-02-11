@@ -13,7 +13,7 @@ const NavBar = () => {
     { id: 'skills', label: 'Skills' }
   ];
   const urlSections = [
-    { url: '/Algorithm-Visualizer/pathfinding', label: 'AlgoViz' },
+    { url: '/algorithm-visualizer/pathfinding', label: 'AlgoViz' },
     { url: '/documents/i_cagkan_caglayanel-resume.pdf', label: 'Resume' },
   ];
 
