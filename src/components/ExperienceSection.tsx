@@ -6,7 +6,7 @@ export const ExperienceSection = () => {
   const experiences = [
     {
       title: "Panteon Games",
-      role: "Mid-Core Software Engineer",
+      role: "Software Engineer, III",
       period: "Nov 2023 - Present",
       location: "Ankara, Turkey",
       responsibilities: [
@@ -17,7 +17,7 @@ export const ExperienceSection = () => {
         "- Optimized Unity Build Pipeline with developer-friendly approach, achieving 80% decreased build times.",
         "- Implemented and optimized game systems with data-oriented design patterns in Unity and C#.",
       ],
-      tech: ["React", "TypeScript", "Go", "Unity", "C#", "Docker", "Jenkins", "GitLab CI", "Python"],
+      tech: ["React", "TypeScript", "Go", "Unity", "C#", ".NET EF", "Docker", "Jenkins", "GitLab CI", "Python", "SQL", "NoSQL"],
       urlsAndIcons: [
         { url: "https://panteon.games", muiIcon: <Language /> },
         { url: "https://linkedin.com/company/panteon", muiIcon: <LinkedIn /> },
@@ -25,7 +25,7 @@ export const ExperienceSection = () => {
     },
     {
       title: "Panteon Games",
-      role: "Software Engineer",
+      role: "Software Engineer, II",
       period: "Feb 2022 - Nov 2023",
       location: "Ankara, Turkey",
       responsibilities: [
@@ -61,10 +61,23 @@ export const ExperienceSection = () => {
         "- Worked on hardware integration, sensor installation, and component assembly.",
         "- Conducted thorough testing and documentation of sensor reliability and software functionality.",
       ],
-      tech: ["Python", "C++", "Embedded Systems", "Networking"],
+      tech: ["Python", "C++", "Embedded Systems", "Networking", "Raspberry PI", "Arduino"],
       urlsAndIcons: [
         { url: "https://deftr.com/", muiIcon: <Language /> },
         { url: "https://linkedin.com/company/def-tr", muiIcon: <LinkedIn /> },
+      ],
+    },
+    {
+      title: "Freelance",
+      role: "Software Developer",
+      period: "Mar 2019 - Jan 2021",
+      location: "Remote",
+      responsibilities: [
+        "- Pre-School education app for kids. 100% Parental control and monitoring with statistics screen and a subscription service. Used by private schools with over 10K downloads.",
+        "- Cocktail ordering website with admin controls and OAuth based authentication, using Flutter for a seamless cross-platform experience..",
+      ],
+      tech: ["Python", "C#", "Unity", "Flutter", "Firebase"],
+      urlsAndIcons: [
       ],
     },
   ];
