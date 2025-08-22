@@ -6,7 +6,7 @@ import React from "react";
 
 
 export const Hero = () => {
-  const TitleList = ['Computer Scientist', 'Software Engineer', 'Game Developer', 'Latin Dancer', 'Guitarist'];
+  const TitleList = ['Computer Scientist', 'Software Engineer', 'Computer Enthusiast', 'Dance Instructor', 'Guitar Instructor'];
 
   const [index, setIndex] = React.useState(0);
 
