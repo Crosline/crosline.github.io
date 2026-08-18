@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  # Allow manual runs from the Actions tab.
+  workflow_dispatch:
+
+# Permissions the deploy-pages action needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; let an in-progress run finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # --ignore-scripts: no dependency's install script is needed here — esbuild
+      # and rollup both ship prebuilt platform binaries. Verified: the build runs
+      # clean from a scriptless install, with no `npm rebuild` step.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build
+        run: npm run build
+
+      # The direction contract must survive the build, or nobody can audit it.
+      - name: Verify direction contract survived the build
+        run: grep -q 3469abde dist/index.html
+
+      # The page has to be complete with JavaScript disabled, which means the
+      # prerender step actually ran and put the work list in the HTML.
+      - name: Verify page is complete without JavaScript
+        run: grep -q 'AmberNet' dist/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

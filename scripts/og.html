@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- Source for public/og.png. Regenerate with `node scripts/og.js` while the
+     site is served, so the share card can never drift from the page's own
+     tokens and typefaces. 1200×630. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: 'Anton';
+        src: url('/fonts/anton-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+2000-206F, U+2212;
+      }
+      @font-face {
+        font-family: 'Anton';
+        src: url('/fonts/anton-latin-ext.woff2') format('woff2');
+        unicode-range: U+0100-02BA, U+1E00-1E9F;
+      }
+      @font-face {
+        font-family: 'Schibsted Grotesk';
+        font-weight: 400 900;
+        src: url('/fonts/schibsted-latin.woff2') format('woff2');
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        background: #0b0b0d;
+        color: #f2efe6;
+        font-family: 'Schibsted Grotesk', sans-serif;
+        padding: 76px 84px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1 {
+        font-family: 'Anton', sans-serif;
+        font-size: 118px;
+        line-height: 0.94;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        text-shadow: 5px 5px 0 #e0242a;
+      }
+      p {
+        font-size: 30px;
+        line-height: 1.35;
+        max-width: 30ch;
+        color: #f2efe6;
+      }
+      .row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 48px;
+      }
+      .score {
+        text-align: right;
+        font-size: 20px;
+        line-height: 1.9;
+        color: #948e83;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .score b {
+        font-family: 'Anton', sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        color: #f2efe6;
+        letter-spacing: -0.02em;
+      }
+      .credit {
+        border: 3px solid #ffb200;
+        color: #ffb200;
+        border-radius: 999px;
+        padding: 8px 24px;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        align-self: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>İ. Çağkan<br />Çağlayanel</h1>
+    <div class="row">
+      <p>Founding Unity Engineer at Proto Division. Ankara, Turkey.</p>
+      <div class="score">
+        <div><b>4,000</b> wishlists · Barfender</div>
+        <div><b>−80%</b> Unity build time · Panteon</div>
+        <div><b>2nd</b> / 600 · MagaraJam#3</div>
+      </div>
+    </div>
+    <div class="credit">1 Credit</div>
+  </body>
+</html>

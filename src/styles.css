@@ -1,0 +1,359 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   ATTRACT MODE — tokens. DESIGN.md §2/§3/§4/§5.
+   No color, spacing value, radius or shadow exists outside this block.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-ink: #0b0b0d; /* cabinet black — never #000 */
+  --color-paper: #f2efe6; /* marquee off-white — never #fff */
+  --color-ink-muted: #5f5b52; /* secondary text ON paper — 5.88:1 */
+  --color-paper-muted: #948e83; /* secondary text ON ink — 6.05:1 */
+  --color-red: #e0242a; /* silkscreen red — DISPLAY SCALE ONLY */
+  --color-red-deep: #b5161f; /* red that may carry body text — 5.89:1 */
+  --color-amber: #ffb200; /* coin amber — ON INK ONLY — 10.88:1 */
+  --color-rule-ink: #2f2f36; /* hairline on cabinet black */
+  --color-rule-paper: #d8d3c6; /* hairline on marquee white */
+
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
+  --font-body: 'Schibsted Grotesk', system-ui, sans-serif;
+
+  --text-marquee: clamp(3rem, 11vw, 6.5rem);
+  --text-head: clamp(2rem, 5vw, 3rem);
+  --text-figure: 2rem; /* display face at figure/company scale */
+  --text-body: 1.45rem;
+  --text-label: 0.875rem;
+
+  --spacing: 1.5rem; /* the one unit: --v-space. .5× .75× 1× 1.5× 2× 3× 4× */
+
+  --radius-control: 4px;
+  --radius-coin: 999px;
+}
+
+/* Fonts — self-hosted subsets, local() first, latin + latin-ext so that
+   İ Ç ğ ş ı Ö Ü render in the wordmark. tnum verified present in the
+   shipped Schibsted subset, so tabular figures are real, not faked. */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Anton'),
+    url('/fonts/anton-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Anton'),
+    url('/fonts/anton-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+    U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src:
+    local('Schibsted Grotesk'),
+    url('/fonts/schibsted-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src:
+    local('Schibsted Grotesk'),
+    url('/fonts/schibsted-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+    U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ------------------------------------------------------------------ base */
+@layer base {
+  :root {
+    --v-space: 1.5rem;
+    --offset-1: 3px 3px 0; /* silkscreen: second ink layer at rest */
+    --offset-2: 6px 6px 0; /* hover: the layer separates */
+    --gutter: clamp(1rem, 4vw, 4.5rem);
+    font-size: 16px;
+  }
+  /* Root font-size steps with the breakpoints — DESIGN.md §3 */
+  @media (width <= 834px) {
+    :root {
+      font-size: 14px;
+    }
+  }
+  @media (width <= 736px) {
+    :root {
+      font-size: 12px;
+    }
+  }
+
+  html {
+    background: var(--color-ink);
+    caret-color: var(--color-red-deep);
+    scrollbar-color: var(--color-rule-ink) var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-amber);
+    color: var(--color-ink);
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    text-wrap: balance;
+  }
+  p {
+    margin: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Focus is never removed. Amber on ink grounds, red-deep on paper. */
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+  .ground-paper :focus-visible {
+    outline-color: var(--color-red-deep);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ------------------------------------------------------- components ---- */
+@layer components {
+  /* Grid — named areas, gutter columns. DESIGN.md §4 */
+  .shell {
+    display: grid;
+    grid-template-columns: var(--gutter) 6fr 4fr var(--gutter);
+    column-gap: calc(var(--v-space) * 2);
+    row-gap: calc(var(--v-space) * 1.5);
+    /* Above ~1900px the columns stop growing and the page centres instead,
+       so the composition holds rather than stretching into a thin band. */
+    max-width: 1760px;
+    margin-inline: auto;
+  }
+  .shell > * {
+    grid-column: 2 / 4;
+  }
+  .shell > .col-main {
+    grid-column: 2 / 3;
+  }
+  .shell > .col-side {
+    grid-column: 3 / 4;
+  }
+  @media (width <= 834px) {
+    .shell {
+      grid-template-columns: var(--gutter) 10fr var(--gutter);
+      row-gap: calc(var(--v-space) * 2);
+    }
+    .shell > *,
+    .shell > .col-main,
+    .shell > .col-side {
+      grid-column: 2 / 3;
+    }
+  }
+
+  /* Bezel arc — the one governing geometry. Sections enter on the arc
+     rather than stacking as rectangles. DESIGN.md §1 */
+  .bezel {
+    position: relative;
+    isolation: isolate;
+  }
+  .bezel::before {
+    content: '';
+    position: absolute;
+    inset: calc(var(--v-space) * -3) 0 auto;
+    height: calc(var(--v-space) * 3);
+    background: inherit;
+    border-radius: 50% 50% 0 0 / calc(var(--v-space) * 3) calc(var(--v-space) * 3) 0 0;
+    z-index: -1;
+  }
+
+  .label {
+    font-size: var(--text-label);
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .figure {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  .marquee {
+    font-family: var(--font-display);
+    font-size: var(--text-marquee);
+    /* DESIGN.md asks for .82. This name breaks it: Ğ carries a breve above
+       cap height and Ç a cedilla below the baseline, so at .82 the stacked
+       lines read as "CAĞKAN / ÇAGLAYANEL". 1.06 was the tightest leading
+       where every diacritic survives; 1.18 is the chosen setting, which gives
+       the two lines room to read as two words rather than one block. */
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-paper);
+    text-shadow: var(--offset-1) var(--color-red);
+  }
+
+  .head {
+    font-family: var(--font-display);
+    font-size: var(--text-head);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+  .head-on-ink {
+    color: var(--color-paper);
+    text-shadow: var(--offset-1) var(--color-red);
+  }
+  .head-on-paper {
+    color: var(--color-red);
+    text-shadow: var(--offset-1) var(--color-ink);
+  }
+
+  /* Prose links: underline, never color alone. */
+  .link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-red-deep);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: text-decoration-thickness 150ms ease-out;
+  }
+  .link:hover {
+    text-decoration-thickness: 3px;
+  }
+  .ground-paper .link {
+    color: var(--color-ink);
+  }
+
+  /* Sub-site door — the loudest pressable thing on the page. */
+  .door {
+    display: block;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    border-radius: var(--radius-control);
+    padding: calc(var(--v-space) * 1.5);
+    box-shadow: var(--offset-1) var(--color-red);
+    transition:
+      transform 150ms ease-out,
+      box-shadow 150ms ease-out;
+  }
+  .door:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--offset-2) var(--color-red);
+  }
+  .door:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 var(--color-red);
+  }
+  .door:focus-visible {
+    outline: 2px solid var(--color-red-deep);
+    outline-offset: 2px;
+  }
+
+  .coin {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--v-space) * 0.5);
+    border: 2px solid var(--color-amber);
+    border-radius: var(--radius-coin);
+    padding: calc(var(--v-space) * 0.25) calc(var(--v-space) * 0.75);
+    color: var(--color-amber);
+  }
+}
+
+/* ------------------------------------------------------------ motion --- */
+/* Content is fully visible by default. `.no-js` is on <html> until JS swaps
+   it for `.loaded`; kill the JS and the page is finished, not broken. */
+@layer utilities {
+  .enter {
+    opacity: 1;
+  }
+  html.loaded .enter {
+    animation: fade-up 2s ease-out both;
+  }
+  html.loaded .enter-2 {
+    animation-delay: 0.25s;
+  }
+  html.loaded .enter-3 {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(calc(var(--v-space) * 0.75));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* The attract loop: the live row is lit, the rest hold their place. */
+  .attract-row {
+    transition:
+      color 400ms ease-out,
+      border-color 400ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.loaded .enter {
+      animation: none;
+    }
+    .attract-row {
+      transition: none;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
