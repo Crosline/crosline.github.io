@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#0b0b0d"/>
+  <g stroke="#e0242a" stroke-width="4" fill="none">
+    <path d="M0 0 1920 1080M1920 0 0 1080"/>
+    <rect x="2" y="2" width="1916" height="1076"/>
+  </g>
+  <rect x="660" y="470" width="600" height="140" fill="#0b0b0d"/>
+  <text x="960" y="562" text-anchor="middle" fill="#f2efe6"
+        font-family="Anton, Arial Narrow, sans-serif" font-size="96"
+        letter-spacing="4">PLACEHOLDER</text>
+  <text x="960" y="640" text-anchor="middle" fill="#948e83"
+        font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="34"
+        letter-spacing="6">1920 × 1080 · 16:9</text>
+</svg>

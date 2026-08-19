@@ -91,18 +91,21 @@ export const built = [
   },
   {
     title: 'AT0S',
+    img: '/images/at0s.png',
     year: '2021',
     note: '2nd of 600 — MagaraJam#3, built in 72 hours.',
     href: 'https://crosline.itch.io/at0s'
   },
   {
     title: 'VAGABOND',
+    img: '/images/vagabond.png',
     year: '2022',
     note: '4th of 500 — MagaraJam#4.',
     href: 'https://biaxthepanda.itch.io/vagabond'
   },
   {
     title: 'The Last Session',
+    img: '/images/the-last-session.png',
     year: '2022',
     note: '6th — MagaraJam#5. AI opponents, human Game Master.',
     href: 'https://crosline.itch.io/the-last-session'

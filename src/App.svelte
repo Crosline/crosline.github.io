@@ -91,6 +91,21 @@
 </header>
 
 <main>
+  <!-- --------------------------------------------------------- screen -->
+  <!-- ponytail: placeholder. Swap the src for a real Barfender still at
+       >=1920px wide and change nothing else. -->
+  <section class="band ground-ink screen-band bezel">
+    <div class="shell">
+      <figure class="screen">
+        <img src="/images/_placeholder.svg" alt="Barfender in play" width="1920" height="1080" />
+        <figcaption class="screen-cap">
+          <span class="label">Barfender</span>
+          <span class="screen-note">Physics-based bar simulation. 4,000+ wishlists in month one.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ----------------------------------------------------------- work -->
   <section id="work" class="band ground-paper bezel">
     <div class="shell">
@@ -153,7 +168,10 @@
       </div>
       <ul class="stack built">
         {#each built as item}
-          <li class="built-row">
+          <li class="built-row" class:has-shot={item.img}>
+            {#if item.img}
+              <img class="built-shot" src={item.img} alt="" width="315" height="250" />
+            {/if}
             <span class="built-title">
               {#if item.href}
                 <a class="link" href={item.href} rel="noopener">{item.title}</a>
@@ -456,6 +474,47 @@
     font-size: var(--text-label);
     letter-spacing: 0.04em;
     color: var(--color-ink-muted);
+  }
+
+  /* ------------------------------------------------------------- screen */
+  .screen-band {
+    padding-block: calc(var(--v-space) * 3);
+  }
+  .screen {
+    margin: 0;
+    border: 1px solid var(--color-rule-ink);
+    box-shadow: var(--offset-1) var(--color-red);
+  }
+  .screen img {
+    width: 100%;
+    /* the cabinet screen never pushes the next band off the fold */
+    max-height: 70vh;
+    object-fit: cover;
+  }
+  .screen-cap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 calc(var(--v-space) * 0.75);
+    padding: calc(var(--v-space) * 0.5) calc(var(--v-space) * 0.75);
+    border-top: 1px solid var(--color-rule-ink);
+  }
+  .screen-note {
+    font-size: var(--text-label);
+    color: var(--color-paper-muted);
+  }
+
+  /* ponytail: thumbnails exist so the 3-of-7 coverage gap and the 315px
+     source width are visible. Delete this block and the img above with it. */
+  .built-row.has-shot {
+    grid-template-columns: 96px minmax(12ch, 20ch) 1fr auto;
+  }
+  .built-shot {
+    width: 96px;
+    height: 76px;
+    object-fit: cover;
+    align-self: center;
+    border: 1px solid var(--color-rule-paper);
   }
 
   /* ------------------------------------------------------------- footer */
