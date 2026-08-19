@@ -48,7 +48,10 @@
   <div class="shell">
     <div class="col-main enter">
       <h1 class="marquee">
-        {#each hero.nameLines as line}<span class="marquee-line">{line}</span>{/each}
+        <!-- Two block spans, not <br>: the break is visual. The space between
+             them collapses to nothing on screen but keeps the accessible name
+             "İ. Çağkan Çağlayanel" rather than one run-together word. -->
+        {#each hero.nameLines as line}<span class="marquee-line">{line}</span>{' '}{/each}
       </h1>
       <p class="five-second">
         {hero.role}, in {hero.place}. {hero.proof.before}<a
@@ -76,7 +79,7 @@
     </div>
 
     <p class="credit-row enter enter-3">
-      <a class="coin" href="#work">
+      <a class="coin" href="#work" aria-label="1 Credit — start at Work">
         <svg class="ico" viewBox="0 0 20 20" aria-hidden="true">
           <circle cx="10" cy="10" r="7.5" />
           <path d="M10 6.5v7" />

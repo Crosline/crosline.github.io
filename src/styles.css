@@ -18,7 +18,7 @@
   --font-display: 'Anton', 'Arial Narrow', sans-serif;
   --font-body: 'Schibsted Grotesk', system-ui, sans-serif;
 
-  --text-marquee: clamp(3rem, 11vw, 6.5rem);
+  --text-marquee: 20cqi; /* fills .col-main at every width — see .col-main container */
   --text-head: clamp(2rem, 5vw, 3rem);
   --text-figure: 2rem; /* display face at figure/company scale */
   --text-body: 1.45rem;
@@ -164,6 +164,10 @@
     grid-template-columns: var(--gutter) 6fr 4fr var(--gutter);
     column-gap: calc(var(--v-space) * 2);
     row-gap: calc(var(--v-space) * 1.5);
+    /* header.band is itself a grid, which makes .shell a grid item and
+       therefore content-sized; without the explicit width the hero's columns
+       do not line up with every other band's. */
+    width: 100%;
     /* Above ~1900px the columns stop growing and the page centres instead,
        so the composition holds rather than stretching into a thin band. */
     max-width: 1760px;
@@ -174,6 +178,10 @@
   }
   .shell > .col-main {
     grid-column: 2 / 3;
+    /* The marquee is sized in cqi so it fills this column at every width.
+       Containment also stops the wordmark's min-content width from
+       inflating the 6fr track past its share. */
+    container-type: inline-size;
   }
   .shell > .col-side {
     grid-column: 3 / 4;
@@ -181,6 +189,7 @@
   @media (width <= 834px) {
     .shell {
       grid-template-columns: var(--gutter) 10fr var(--gutter);
+      column-gap: 0;
       row-gap: calc(var(--v-space) * 2);
     }
     .shell > *,

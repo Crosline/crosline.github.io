@@ -66,6 +66,13 @@ export const doors = [
     state: 'LIVE',
     blurb:
       'A browser DAW in Svelte 5. The audio engine is a separate package with no DOM imports, tested with Vitest and Playwright.'
+  },
+  {
+    title: 'Algorithm Visualizer',
+    href: '/algorithm-visualizer/',
+    state: 'LIVE',
+    blurb:
+      'Eight modules on one spine: pure step generators, a transport that plays them, a renderer that draws state. Pathfinding, wave function collapse, flow fields, boids — all steppable, scrubbable and tested headlessly.'
   }
 ];
 
@@ -108,7 +115,7 @@ export const built = [
   },
   {
     title: 'UniLibrary',
-    year: '2022 –',
+    year: '2022',
     note: 'Unity utility library.',
     href: 'https://github.com/Crosline/Library'
   }
